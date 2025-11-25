@@ -1,11 +1,12 @@
 import 'dart:io';
 import 'package:password_manager/generate.dart' as generate;
 import 'package:password_manager/hash.dart' as hash;
+import 'package:password_manager/salt.dart' as salt;
 
 void main(List<String> arguments) {
   int choice;
   stdout.write(
-    'Password Manager\n(1) Generate Password\n(2) Hash Password\nChoice: ',
+    'Password Manager\n(1) Generate Password\n(2) Hash Password\n(3) Store Salt\nChoice: ',
   );
   choice = int.parse(stdin.readLineSync()!);
   switch (choice) {
@@ -14,6 +15,9 @@ void main(List<String> arguments) {
       break;
     case 2:
       hash.password();
+      break;
+    case 3:
+      salt.storeSalt();
       break;
     default:
       stdout.writeln('Invalid!');
